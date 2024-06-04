@@ -34,7 +34,7 @@ function Form() {
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
-            <input type="text" placeholder="+7 (...)-...-..-.." />
+            <input type="number" placeholder="+7 (...)-...-..-.." />
           </div>
           <div className="form__item">
             <label className="form__title">Колличество человек:</label>

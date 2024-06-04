@@ -12,6 +12,7 @@ function Cards() {
       <div class="container">
         <section class="cards">
           <Card />
+          <Card />
         </section>
       </div>
     </>

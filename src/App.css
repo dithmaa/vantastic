@@ -64,8 +64,8 @@ body {
 }
 
 .container {
-  max-width: 360px;
-  width: 95%;
+  max-width: 400px;
+  width: 98%;
   margin: 0 auto;
 }
 
@@ -137,18 +137,18 @@ body {
 
 .card__title {
   margin-top: 0;
-  font-size: 10px;
+  font-size: 12px;
   padding-right: 30px;
   margin-bottom: 2px;
 }
 
 .card__price {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .card__price p {
-  font-size: 8px;
+  font-size: 10px;
 }
 
 header {
@@ -256,7 +256,7 @@ header {
 }
 
 .card__info {
-  font-size: 8px;
+  font-size: 10px;
   color: #413E4F;
   margin-top: 3px;
 }
@@ -399,6 +399,31 @@ header {
 
 .form input::placeholder {
   color: #5b5b5b;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .form input.text-input {
