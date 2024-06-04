@@ -98,8 +98,8 @@ function Form() {
           <div className="form__item">
             <label className="form__title">Колличество человек:</label>
             <div className="form__item-line flex">
-              <input type="number" placeholder="Взрослые" />
-              <input type="number" placeholder="Дети" />
+              <input type="tel" maxLength={2} placeholder="Взрослые" />
+              <input type="tel" maxLength={2} placeholder="Дети" />
             </div>
           </div>
 
