@@ -15,6 +15,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+      lorem lorem
       <Routes>
         <Route path="/" element={<Cards />} />
         <Route path="/card/" element={<CardPage />} />
