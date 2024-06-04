@@ -53,6 +53,7 @@ function Form() {
 
     const handleScroll = () => {
       clearTimeout(timeoutId); // Очищаем предыдущий таймаут, если он был установлен
+
       const inputElements = document.querySelectorAll("input, textarea");
       const hasFocusedElement = Array.from(inputElements).some(
         (element) => element === document.activeElement
@@ -62,7 +63,7 @@ function Form() {
         // Устанавливаем таймаут перед скрытием клавиатуры
         timeoutId = setTimeout(() => {
           document.activeElement.blur();
-        }, 390); // Измените это значение на необходимое вам
+        }, 100); // Устанавливаем время ожидания, после которого будет скрыта клавиатура
       }
     };
 
@@ -83,7 +84,7 @@ function Form() {
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя.</h3>
+        <h3 className="form-title">Имя..</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
