@@ -1,0 +1,502 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* 
+input::-webkit-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+input::-moz-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+input:-moz-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+input:-ms-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+input:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+input:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+input:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+} */
+
+
+img {
+  width: 100%;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  color: #413E4F;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 360px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card-type__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__next-btn img {
+  width: calc(14vw - 5px);
+  max-width: 50px;
+}
+
+.card__img img {
+  height: 105px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  background-color: #fff;
+  width: 46%;
+  overflow: hidden;
+  position: relative;
+  margin: 14px 2%;
+}
+
+.card__next-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  background-color: #18c6d8;
+  opacity: 0.7;
+  border-top-left-radius: 70px;
+  cursor: pointer;
+  transition: .25s ease opacity;
+}
+
+.card__next-btn:active {
+  opacity: 0.3;
+}
+
+.card-type {
+  padding-bottom: 22px;
+  font-size: 11px;
+}
+
+.card-type__row {
+  border-bottom: 1px solid #413e4f7f;
+  padding: 4px 0;
+}
+
+.card__title {
+  margin-top: 0;
+  font-size: 10px;
+  padding-right: 30px;
+  margin-bottom: 2px;
+}
+
+.card__price {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card__price p {
+  font-size: 8px;
+}
+
+header {
+  background: no-repeat center / cover;
+  height: 120px;
+
+}
+
+section {
+  padding: 14px 0;
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+.card__price p {
+  font-size: 9px;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.card__price span {
+  padding-right: 4px;
+}
+
+.card-type__row:last-child {
+  border-bottom: none;
+}
+
+.card-text-content {
+  padding: 6px 5px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-page__image {
+  object-fit: cover;
+}
+
+.header.white {
+  color: #fff;
+}
+
+.plaque__logo {
+  position: absolute;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+}
+
+.card-page-img {
+  height: 222px;
+}
+
+.plaque__logo img {
+  width: 270px;
+}
+
+.card-page__content {
+  margin-top: 0;
+  /* border-radius: 30px; */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 20px;
+  background-color: #fff;
+  position: relative;
+  z-index: 999;
+  margin-top: -6px;
+}
+
+
+.card-page__content .h2 {
+  font-size: 20px;
+  margin-top: 4px;
+
+  /* text-transform: uppercase; */
+}
+
+.options-title {
+  font-size: 10px;
+  padding-top: 4px;
+}
+
+.options-val {
+  font-size: 16px;
+  padding-top: 6px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #0000005a;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+.options-val:last-child {
+  border-color: transparent;
+}
+
+.card__info {
+  font-size: 8px;
+  color: #413E4F;
+  margin-top: 3px;
+}
+
+.card-page {
+  padding-top: 0;
+}
+
+.card {
+  position: relative;
+}
+
+.card .card-bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  right: 0;
+}
+
+.card-page-img {
+  position: relative;
+  z-index: 4;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.card-bottom {
+  padding-left: 6px;
+}
+
+.card-text-content {
+  margin-bottom: 36px;
+}
+
+.btn {
+  background-color: #489AEA;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 100px;
+  display: block;
+  margin: 15px auto;
+  width: 90%;
+  cursor: pointer;
+  transition: .25s ease all;
+}
+
+.btn.btn-main {
+  font-size: 22px;
+  padding: 16px 18px;
+  margin-top: 40px;
+  font-weight: 500;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+  opacity: 0.6;
+}
+
+.btn.info-plaque {
+  background-color: #F8B328;
+  user-select: none;
+  cursor: auto;
+}
+
+.btn.info-plaque:active {
+  opacity: 1;
+}
+
+.form__title {
+  display: block;
+  color: #413E4F;
+
+}
+
+
+.form input,
+.form__btn {
+  border: 2px solid #489AEA;
+  border-radius: 10px;
+  color: #5b5b5b;
+  padding: 13px 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  outline: none;
+}
+
+.form-title {
+  font-size: 26px;
+  text-align: center;
+  -webkit-text-stroke: 0.4px #489AEA;
+  /* Толщина и цвет обводки */
+  text-stroke: 0.4px #489AEA;
+  /* Толщина и цвет обводки (стандартное свойство) */
+}
+
+.form__item {
+  margin: 15px 0;
+}
+
+.form__title {
+  color: #000000;
+  padding-left: 20px;
+  -webkit-text-stroke: 0.4px #489AEA;
+  /* Толщина и цвет обводки */
+  text-stroke: 0.4px #489AEA;
+  /* Толщина и цвет обводки (стандартное свойство) */
+}
+
+
+.form input {
+  width: 100%;
+}
+
+.form__item-line input {
+  width: 48%;
+  text-align: center;
+}
+
+.form__item-line.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__btn {
+  background-color: transparent;
+  width: 100%;
+  padding: 16px 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #919191;
+}
+
+.form input::placeholder {
+  color: #5b5b5b;
+}
+
+.form input.text-input {
+  padding-left: 50px;
+  border: none;
+}
+
+.form input#date-input {
+  padding-left: 36px;
+}
+
+.date-input-container {
+  position: relative;
+}
+
+.date-input-container::after {
+  content: "Выберите дату";
+  position: absolute;
+  top: 15px;
+  user-select: none;
+  pointer-events: none;
+  left: 36px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 3px;
+}
+
+.form__btn {
+  margin-top: 50px;
+  transition: .25s ease all;
+}
+
+.form__btn:active {
+  opacity: 0.6;
+}
+
+.card__next-btn img {
+  width: calc(14vw - 5px);
+  max-width: 50px;
+}
+
+.card-page__content p {
+  font-size: 13px;
+}
+
+.card-page a {
+  text-decoration: none;
+}
+
+.date-input-container {
+  position: relative;
+  width: 200px;
+}
+
+.text-input,
+.real-date-input {
+  width: 100%;
+  padding: 8px;
+  padding-left: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+}
+
+.text-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: transparent;
+  pointer-events: none;
+}
+
+.real-date-input {
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+}
+
+.date-input-container .calendar-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #888;
+}
+
+.real-date-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
+}
