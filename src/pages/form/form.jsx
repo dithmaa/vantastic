@@ -74,7 +74,7 @@ function Form() {
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя..</h3>
+        <h3 className="form-title">Имя...</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
@@ -83,7 +83,7 @@ function Form() {
               onBlur={() => setIsKeyboardOpen(false)}
               maxLength={13}
               value={phoneVal}
-              type="number"
+              type="tel"
               placeholder="+7 (...)-...-..-.."
               onChange={handlePhoneVal}
             />
