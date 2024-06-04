@@ -17,7 +17,12 @@ function Form() {
     }
   };
   const handlePhoneVal = (e) => {
-    setPhoneVal(e.target.value);
+    const inputValue = e.target.value;
+    // Проверяем ввод на соответствие регулярному выражению
+    const regex = /^[+\d]*$/;
+    if (regex.test(inputValue)) {
+      setPhoneVal(inputValue);
+    }
   };
 
   useEffect(() => {
