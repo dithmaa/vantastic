@@ -536,13 +536,19 @@ input[type='time'] {
   cursor: pointer;
 }
 
+.page-gap {
+  margin-top: 59px;
+}
+
 .back-btn {
-  position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 9999;
   font-size: 16px;
   color: #fff;
   text-decoration: none;
   padding: 16px 8px;
+  margin-top: -59px;
   display: block;
   background: #212121;
   display: flex;

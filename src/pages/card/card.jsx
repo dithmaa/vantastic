@@ -29,7 +29,7 @@ function Card({ cardImages, products }) {
   };
   console.log(isPreloaderActive);
   return (
-    <section className="card-page">
+    <section className="card-page page-gap">
       <Preloader isActive={isPreloaderActive} />
       <NavLink to="/" className="back-btn">
         <img src={backArrow} alt="Назад" /> <span>Назад</span>
