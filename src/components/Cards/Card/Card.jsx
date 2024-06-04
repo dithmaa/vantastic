@@ -4,6 +4,7 @@ import nextBtn from "../../../assets/img/next-btn.svg";
 
 import cardImage1 from "../../../assets/img/card1.png";
 import { NavLink } from "react-router-dom";
+const tg = window.Telegram.WebApp;
 
 function Card() {
   const vibrate = () => {

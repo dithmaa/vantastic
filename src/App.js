@@ -3,9 +3,9 @@ import "./App.css";
 import Cards from "./components/Cards/Cards";
 import CardPage from "./pages/card/card";
 import Form from "./pages/form/form";
+import { useEffect } from "react";
 
 const tg = window.Telegram.WebApp;
-
 function App() {
   useEffect(() => {
     tg.ready();
