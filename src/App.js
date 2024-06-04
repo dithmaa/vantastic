@@ -23,6 +23,7 @@ function App() {
   }
   return (
     <div className="App">
+      lorem
       <Routes>
         <Route
           path="/"
