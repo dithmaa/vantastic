@@ -4,6 +4,7 @@ import Cards from "./components/Cards/Cards";
 import CardPage from "./pages/card/card";
 import Form from "./pages/form/form";
 import { useEffect } from "react";
+import { products } from "./products";
 
 const tg = window.Telegram.WebApp;
 function App() {
@@ -13,11 +14,23 @@ function App() {
       tg.expand();
     }, 200);
   }, []);
+
+  const cardImages = [];
+
+  for (let i = 1; i <= 16; i++) {
+    cardImages.push(require(`./assets/img/card${i}.jpg`));
+  }
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Cards />} />
-        <Route path="/card/" element={<CardPage />} />
+        <Route
+          path="/"
+          element={<Cards products={products} cardImages={cardImages} />}
+        />
+        <Route
+          path="/card/:id"
+          element={<CardPage products={products} cardImages={cardImages} />}
+        />
         <Route path="/form/" element={<Form />} />
       </Routes>
     </div>

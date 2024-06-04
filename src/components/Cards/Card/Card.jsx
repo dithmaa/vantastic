@@ -2,32 +2,27 @@ import React from "react";
 
 import nextBtn from "../../../assets/img/next-btn.svg";
 
-import cardImage1 from "../../../assets/img/card1.png";
 import { NavLink } from "react-router-dom";
 const tg = window.Telegram.WebApp;
 
-function Card() {
+function Card({ image, name, description, price, picture, id }) {
   const vibrate = () => {
     tg.HapticFeedback.impactOccurred("rigid");
   };
   return (
-    <div class="card">
-      <div class="card__img">
-        <img src={cardImage1} alt="Роза Хутор 3 экскурсии по цене 1" />
+    <div className="card">
+      <div className="card__img">
+        <img src={picture} alt={name} />
       </div>
-      <div class="card-text-content">
-        <h3 class="card__title">Роза Хутор 3 экскурсии по цене 1</h3>
-        <p class="card__info">
-          Сочи (обзор), смотровая площадка на «Skypark», Ущелье Ахцу, «Медвежий
-          угол», Горное кафе, курорт Красная Поляна, курорт. Роза Хутор, курорт
-          Газпром, ОКЦ «Галактика».
-        </p>
-        <div class="card-bottom">
-          <div class="card__price">
-            <span>2500</span>₽<p>За взрослого</p>
+      <div className="card-text-content">
+        <h3 className="card__title">{name}</h3>
+        <p className="card__info">{description}</p>
+        <div className="card-bottom">
+          <div className="card__price">
+            <span>{price}</span>₽<p>За взрослого</p>
           </div>
-          <NavLink to="/card/">
-            <span onClick={vibrate} class="card__next-btn">
+          <NavLink to={"/card/" + id}>
+            <span onClick={vibrate} className="card__next-btn">
               <img src={nextBtn} alt="next btn" />
             </span>
           </NavLink>

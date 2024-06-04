@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import header2 from "../../assets/img/header2.jpg";
 import calendarIcon from "../../assets/img/Calendar.svg";
+import backArrow from "../../assets/img/back-arrow.png";
+import { NavLink } from "react-router-dom";
 
 function Form() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -26,6 +28,9 @@ function Form() {
 
   return (
     <section className="card-page">
+      <NavLink to="/" className="back-btn">
+        <img src={backArrow} alt="Назад" /> <span>Назад</span>
+      </NavLink>
       <div className="card-page__image">
         <img src={header2} alt="header2" />
       </div>

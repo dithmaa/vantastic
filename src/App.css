@@ -535,3 +535,27 @@ input[type='time'] {
   background: transparent;
   cursor: pointer;
 }
+
+.back-btn {
+  position: relative;
+  z-index: 9999;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 8px;
+  display: block;
+  background: #212121;
+  display: flex;
+  align-items: center;
+  transition: .25s ease all;
+}
+
+.back-btn img {
+  width: 27px;
+  filter: invert(1);
+  margin-right: 10px;
+}
+
+.back-btn:active {
+  opacity: 0.9;
+}
