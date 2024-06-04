@@ -464,6 +464,11 @@ header {
   cursor: pointer;
 }
 
+input[type='date'],
+input[type='time'] {
+  -webkit-appearance: none;
+}
+
 .text-input {
   position: absolute;
   top: 0;
