@@ -8,11 +8,11 @@ function Form() {
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
 
-    if (event.target.value) {
-      let style = document.createElement("style");
-      style.innerHTML = ".date-input-container::after{display:none;}";
-      document.querySelector("head").appendChild(style);
-    }
+    // if (event.target.value) {
+    //   let style = document.createElement("style");
+    //   style.innerHTML = ".date-input-container::after{display:none;}";
+    //   document.querySelector("head").appendChild(style);
+    // }
   };
 
   return (

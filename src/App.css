@@ -414,6 +414,7 @@ header {
   position: relative;
 }
 
+/* 
 .date-input-container::after {
   content: "Выберите дату";
   position: absolute;
@@ -423,7 +424,7 @@ header {
   left: 36px;
   background-color: rgb(255, 255, 255);
   padding: 10px 3px;
-}
+} */
 
 .form__btn {
   margin-top: 50px;
