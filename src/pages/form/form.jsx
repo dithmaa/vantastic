@@ -6,16 +6,9 @@ import { NavLink } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 
 function Form() {
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const [phoneVal, setPhoneVal] = useState("");
   // Обработчик события скролла страницы
-  const handleScroll = () => {
-    if (isKeyboardOpen) {
-      // Закрываем клавиатуру
-      // Ваш код для закрытия клавиатуры
-      setIsKeyboardOpen(false);
-    }
-  };
+
   const handlePhoneVal = (e) => {
     const inputValue = e.target.value;
     // Проверяем ввод на соответствие регулярному выражению
@@ -24,16 +17,6 @@ function Form() {
       setPhoneVal(inputValue);
     }
   };
-
-  useEffect(() => {
-    // Добавляем обработчик события скролла при монтировании компонента
-    window.addEventListener("scroll", handleScroll);
-    // Удаляем обработчик события скролла при размонтировании компонента
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Пустой массив зависимостей гарантирует, что этот эффект выполняется только один раз при монтировании
-
   const [selectedDate, setSelectedDate] = useState("");
 
   const handleDateChange = (event) => {
@@ -62,7 +45,33 @@ function Form() {
       setPreloaderActive(false);
     }, 900);
   }, []);
-  <Preloader />;
+
+  // Скрытие клавы
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Проверяем, есть ли элементы ввода на странице
+      const inputElements = document.querySelectorAll("input, textarea");
+
+      // Проверяем, есть ли элементы с фокусом на странице
+      const hasFocusedElement = Array.from(inputElements).some(
+        (element) => element === document.activeElement
+      );
+
+      // Если есть фокусированный элемент, скрываем клавиатуру
+      if (hasFocusedElement) {
+        document.activeElement.blur(); // Снимаем фокус с элемента ввода
+      }
+    };
+
+    // Добавляем обработчик события скролла к window
+    window.addEventListener("scroll", handleScroll);
+
+    // Очистка обработчика при размонтировании компонента
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Пустой массив зависимостей означает, что useEffect вызывается только один раз после монтирования компонента
 
   return (
     <section className="card-page page-gap">
@@ -70,18 +79,15 @@ function Form() {
       <NavLink to="/" className="back-btn">
         <img src={backArrow} alt="Назад" /> <span>Назад</span>
       </NavLink>
-      isKeyboardOpen: {isKeyboardOpen}
       <div className="card-page__image form-page__image">
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя</h3>
+        <h3 className="form-title">Имя.</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
             <input
-              onFocus={() => setIsKeyboardOpen(true)}
-              onBlur={() => setIsKeyboardOpen(false)}
               maxLength={13}
               value={phoneVal}
               type="tel"
