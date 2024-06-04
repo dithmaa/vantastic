@@ -158,6 +158,8 @@ body {
 header {
   background: no-repeat center / cover;
   height: 104px;
+  max-width: 500px;
+  margin: 0 auto;
 
 }
 
@@ -195,6 +197,12 @@ header {
 
 .card-page__image {
   object-fit: cover;
+}
+
+.form-page__image img {
+  height: 180px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .header.white {
@@ -348,10 +356,14 @@ header {
   border: 2px solid #489AEA;
   border-radius: 10px;
   color: #5b5b5b;
-  padding: 13px 10px;
+  padding: 10px 8px;
   font-size: 16px;
-  margin: 10px 0;
+  margin: 6px 0;
   outline: none;
+}
+
+.form {
+  padding-bottom: 90px;
 }
 
 .form-title {

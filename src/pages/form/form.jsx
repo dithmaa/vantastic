@@ -6,6 +6,25 @@ import { NavLink } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 
 function Form() {
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  // Обработчик события скролла страницы
+  const handleScroll = () => {
+    if (isKeyboardOpen) {
+      // Закрываем клавиатуру
+      // Ваш код для закрытия клавиатуры
+      setIsKeyboardOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Добавляем обработчик события скролла при монтировании компонента
+    window.addEventListener("scroll", handleScroll);
+    // Удаляем обработчик события скролла при размонтировании компонента
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Пустой массив зависимостей гарантирует, что этот эффект выполняется только один раз при монтировании
+
   const [selectedDate, setSelectedDate] = useState("");
 
   const handleDateChange = (event) => {
@@ -42,7 +61,7 @@ function Form() {
       <NavLink to="/" className="back-btn">
         <img src={backArrow} alt="Назад" /> <span>Назад</span>
       </NavLink>
-      <div className="card-page__image">
+      <div className="card-page__image form-page__image">
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
@@ -50,7 +69,12 @@ function Form() {
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
-            <input type="number" placeholder="+7 (...)-...-..-.." />
+            <input
+              onFocus={() => setIsKeyboardOpen(true)}
+              onBlur={() => setIsKeyboardOpen(false)}
+              type="number"
+              placeholder="+7 (...)-...-..-.."
+            />
           </div>
           <div className="form__item">
             <label className="form__title">Колличество человек:</label>
