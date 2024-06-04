@@ -3,6 +3,7 @@ import header2 from "../../assets/img/header2.jpg";
 import calendarIcon from "../../assets/img/Calendar.svg";
 import backArrow from "../../assets/img/back-arrow.png";
 import { NavLink } from "react-router-dom";
+import Preloader from "../../components/Preloader/Preloader";
 
 function Form() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -25,13 +26,19 @@ function Form() {
     }
     setSelectedDate(year + "-" + month + "-" + day);
   }, []);
+  const [isPreloaderActive, setPreloaderActive] = useState(true);
   useEffect(() => {
     // Прокручиваем страницу вверх при монтировании компонента
     window.scrollTo(0, 0);
+    setTimeout(() => {
+      setPreloaderActive(false);
+    }, 900);
   }, []);
+  <Preloader />;
 
   return (
     <section className="card-page">
+      <Preloader isActive={isPreloaderActive} />
       <NavLink to="/" className="back-btn">
         <img src={backArrow} alt="Назад" /> <span>Назад</span>
       </NavLink>

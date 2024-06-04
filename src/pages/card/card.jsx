@@ -7,10 +7,12 @@ import backArrow from "../../assets/img/back-arrow.png";
 import { NavLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
+import Preloader from "../../components/Preloader/Preloader";
 const tg = window.Telegram.WebApp;
 
 function Card({ cardImages, products }) {
   const { id } = useParams();
+  const [isPreloaderActive, setPreloaderActive] = useState(true);
   const [currentProductImg, setCurrentProductImg] = useState([]);
   useEffect(() => {
     setCurrentProductImg(cardImages[id - 1]);
@@ -18,12 +20,17 @@ function Card({ cardImages, products }) {
   useEffect(() => {
     // Прокручиваем страницу вверх при монтировании компонента
     window.scrollTo(0, 0);
+    setTimeout(() => {
+      setPreloaderActive(false);
+    }, 700);
   }, []);
   const vibrate = () => {
     tg.HapticFeedback.impactOccurred("rigid");
   };
+  console.log(isPreloaderActive);
   return (
     <section className="card-page">
+      <Preloader isActive={isPreloaderActive} />
       <NavLink to="/" className="back-btn">
         <img src={backArrow} alt="Назад" /> <span>Назад</span>
       </NavLink>
