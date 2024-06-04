@@ -46,34 +46,6 @@ function Form() {
     }, 900);
   }, []);
 
-  // Скрытие клавы
-
-  useEffect(() => {
-    let timeoutId;
-
-    const handleScroll = () => {
-      clearTimeout(timeoutId); // Очищаем предыдущий таймаут, если он был установлен
-
-      const inputElements = document.querySelectorAll("input, textarea");
-      const hasFocusedElement = Array.from(inputElements).some(
-        (element) => element === document.activeElement
-      );
-
-      if (hasFocusedElement) {
-        // Устанавливаем таймаут перед скрытием клавиатуры
-        timeoutId = setTimeout(() => {
-          document.activeElement.blur();
-        }, 100); // Устанавливаем время ожидания, после которого будет скрыта клавиатура
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timeoutId); // Очищаем таймаут при размонтировании компонента
-    };
-  }, []);
   return (
     <section className="card-page page-gap">
       <Preloader isActive={isPreloaderActive} />

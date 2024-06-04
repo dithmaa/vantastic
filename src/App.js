@@ -9,6 +9,34 @@ import Preloader from "./components/Preloader/Preloader";
 
 const tg = window.Telegram.WebApp;
 function App() {
+  // Скрытие клавы
+
+  useEffect(() => {
+    let timeoutId;
+
+    const handleScroll = () => {
+      clearTimeout(timeoutId); // Очищаем предыдущий таймаут, если он был установлен
+
+      const inputElements = document.querySelectorAll("input, textarea");
+      const hasFocusedElement = Array.from(inputElements).some(
+        (element) => element === document.activeElement
+      );
+
+      if (hasFocusedElement) {
+        // Устанавливаем таймаут перед скрытием клавиатуры
+        timeoutId = setTimeout(() => {
+          document.activeElement.blur();
+        }, 100); // Устанавливаем время ожидания, после которого будет скрыта клавиатура
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeoutId); // Очищаем таймаут при размонтировании компонента
+    };
+  }, []);
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   useEffect(() => {
     tg.ready();
