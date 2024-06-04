@@ -141,7 +141,7 @@ body {
 
 .card__title {
   margin-top: 0;
-  font-size: 12px;
+  font-size: 11px;
   padding-right: 30px;
   margin-bottom: 2px;
 }
@@ -157,7 +157,7 @@ body {
 
 header {
   background: no-repeat center / cover;
-  height: 120px;
+  height: 104px;
 
 }
 
@@ -235,7 +235,7 @@ header {
 
 
 .card-page__content .h2 {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 4px;
 
   /* text-transform: uppercase; */
@@ -260,7 +260,7 @@ header {
 }
 
 .card__info {
-  font-size: 10px;
+  font-size: 9px;
   color: #413E4F;
   margin-top: 3px;
 }
@@ -303,7 +303,7 @@ header {
   background-color: #489AEA;
   color: #fff;
   border: none;
-  font-size: 16px;
+  font-size: 13px;
   padding: 10px 14px;
   border-radius: 100px;
   display: block;
@@ -314,8 +314,8 @@ header {
 }
 
 .btn.btn-main {
-  font-size: 22px;
-  padding: 16px 18px;
+  font-size: 19px;
+  padding: 13px 11px;
   margin-top: 40px;
   font-weight: 500;
 
@@ -470,7 +470,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .card-page__content p {
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .card-page a {
@@ -537,18 +537,18 @@ input[type='time'] {
 }
 
 .page-gap {
-  margin-top: 59px;
+  margin-top: 54px;
 }
 
 .back-btn {
   position: fixed;
   width: 100%;
   z-index: 9999;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   text-decoration: none;
   padding: 16px 8px;
-  margin-top: -59px;
+  margin-top: -54px;
   display: block;
   background: #212121;
   display: flex;
@@ -557,7 +557,7 @@ input[type='time'] {
 }
 
 .back-btn img {
-  width: 27px;
+  width: 24px;
   filter: invert(1);
   margin-right: 10px;
 }
