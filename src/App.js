@@ -10,6 +10,7 @@ const tg = window.Telegram.WebApp;
 function App() {
   useEffect(() => {
     tg.ready();
+    tg.isClosingConfirmationEnabled = true;
     setTimeout(() => {
       tg.expand();
     }, 200);
