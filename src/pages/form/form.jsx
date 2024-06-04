@@ -7,13 +7,22 @@ function Form() {
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
-
-    // if (event.target.value) {
-    //   let style = document.createElement("style");
-    //   style.innerHTML = ".date-input-container::after{display:none;}";
-    //   document.querySelector("head").appendChild(style);
-    // }
   };
+
+  useEffect(() => {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    setSelectedDate(year + "-" + month + "-" + day);
+  }, []);
 
   return (
     <section className="card-page">
