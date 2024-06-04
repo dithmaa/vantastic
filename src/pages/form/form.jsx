@@ -7,6 +7,7 @@ import Preloader from "../../components/Preloader/Preloader";
 
 function Form() {
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [phoneVal, setPhoneVal] = useState("");
   // Обработчик события скролла страницы
   const handleScroll = () => {
     if (isKeyboardOpen) {
@@ -14,6 +15,9 @@ function Form() {
       // Ваш код для закрытия клавиатуры
       setIsKeyboardOpen(false);
     }
+  };
+  const handlePhoneVal = (e) => {
+    setPhoneVal(e.target.value);
   };
 
   useEffect(() => {
@@ -65,15 +69,18 @@ function Form() {
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя</h3>
+        <h3 className="form-title">Имя.</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
             <input
               onFocus={() => setIsKeyboardOpen(true)}
               onBlur={() => setIsKeyboardOpen(false)}
+              maxLength={13}
+              value={phoneVal}
               type="number"
               placeholder="+7 (...)-...-..-.."
+              onChange={handlePhoneVal}
             />
           </div>
           <div className="form__item">
