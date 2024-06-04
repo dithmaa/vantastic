@@ -15,6 +15,10 @@ function Card({ cardImages, products }) {
   useEffect(() => {
     setCurrentProductImg(cardImages[id - 1]);
   }, []);
+  useEffect(() => {
+    // Прокручиваем страницу вверх при монтировании компонента
+    window.scrollTo(0, 0);
+  }, []);
   const vibrate = () => {
     tg.HapticFeedback.impactOccurred("rigid");
   };

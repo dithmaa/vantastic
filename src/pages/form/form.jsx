@@ -25,6 +25,10 @@ function Form() {
     }
     setSelectedDate(year + "-" + month + "-" + day);
   }, []);
+  useEffect(() => {
+    // Прокручиваем страницу вверх при монтировании компонента
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="card-page">
