@@ -62,7 +62,7 @@ function Form() {
         // Устанавливаем таймаут перед скрытием клавиатуры
         timeoutId = setTimeout(() => {
           document.activeElement.blur();
-        }, 200); // Измените это значение на необходимое вам
+        }, 390); // Измените это значение на необходимое вам
       }
     };
 
@@ -83,7 +83,7 @@ function Form() {
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя</h3>
+        <h3 className="form-title">Имя.</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
