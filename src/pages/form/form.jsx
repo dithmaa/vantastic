@@ -49,30 +49,30 @@ function Form() {
   // Скрытие клавы
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Проверяем, есть ли элементы ввода на странице
-      const inputElements = document.querySelectorAll("input, textarea");
+    let timeoutId;
 
-      // Проверяем, есть ли элементы с фокусом на странице
+    const handleScroll = () => {
+      clearTimeout(timeoutId); // Очищаем предыдущий таймаут, если он был установлен
+      const inputElements = document.querySelectorAll("input, textarea");
       const hasFocusedElement = Array.from(inputElements).some(
         (element) => element === document.activeElement
       );
 
-      // Если есть фокусированный элемент, скрываем клавиатуру
       if (hasFocusedElement) {
-        document.activeElement.blur(); // Снимаем фокус с элемента ввода
+        // Устанавливаем таймаут перед скрытием клавиатуры
+        timeoutId = setTimeout(() => {
+          document.activeElement.blur();
+        }, 200); // Измените это значение на необходимое вам
       }
     };
 
-    // Добавляем обработчик события скролла к window
     window.addEventListener("scroll", handleScroll);
 
-    // Очистка обработчика при размонтировании компонента
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeoutId); // Очищаем таймаут при размонтировании компонента
     };
-  }, []); // Пустой массив зависимостей означает, что useEffect вызывается только один раз после монтирования компонента
-
+  }, []);
   return (
     <section className="card-page page-gap">
       <Preloader isActive={isPreloaderActive} />
@@ -83,7 +83,7 @@ function Form() {
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя.</h3>
+        <h3 className="form-title">Имя</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
