@@ -64,7 +64,7 @@ function Form() {
               maxLength={13}
               value={phoneVal}
               type="tel"
-              placeholder="+7 (...)-...-..-.."
+              placeholder="+7 (...) -...-..-.."
               onChange={handlePhoneVal}
             />
           </div>
