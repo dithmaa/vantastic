@@ -70,11 +70,12 @@ function Form() {
       <NavLink to="/" className="back-btn">
         <img src={backArrow} alt="Назад" /> <span>Назад</span>
       </NavLink>
+      isKeyboardOpen: {isKeyboardOpen}
       <div className="card-page__image form-page__image">
         <img src={header2} alt="header2" />
       </div>
       <div className="container">
-        <h3 className="form-title">Имя...</h3>
+        <h3 className="form-title">Имя</h3>
         <form className="form" action="#">
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
