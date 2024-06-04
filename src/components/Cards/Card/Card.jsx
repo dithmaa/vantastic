@@ -4,7 +4,11 @@ import nextBtn from "../../../assets/img/next-btn.svg";
 
 import cardImage1 from "../../../assets/img/card1.png";
 import { NavLink } from "react-router-dom";
+
 function Card() {
+  const vibrate = () => {
+    tg.HapticFeedback.impactOccurred("rigid");
+  };
   return (
     <div class="card">
       <div class="card__img">
@@ -22,7 +26,7 @@ function Card() {
             <span>2500</span>₽<p>За взрослого</p>
           </div>
           <NavLink to="/card/">
-            <span class="card__next-btn">
+            <span onClick={vibrate} class="card__next-btn">
               <img src={nextBtn} alt="next btn" />
             </span>
           </NavLink>
