@@ -14,6 +14,9 @@ function App() {
   const [isAuth, setAuth] = useState(false);
   const [user, setUser] = useState();
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 2020);
+  const [refID, setRefID] = useState(
+    Number(tg.initDataUnsafe?.user?.id.slice(3)) || 999
+  );
   const [userName, setUserName] = useState(
     tg.initDataUnsafe?.user?.username || "noname"
   );
@@ -23,10 +26,6 @@ function App() {
     setTimeout(() => {
       tg.expand();
     }, 200);
-
-    setTimeout(() => {
-      setPreloaderActive(false);
-    }, 700);
   }, []);
   const getUser = async () => {
     console.log("is getting...");
@@ -38,6 +37,10 @@ function App() {
         alert("Пользователь найден");
         setUser(data[0]);
         console.log(data[0]);
+
+        setTimeout(() => {
+          setPreloaderActive(false);
+        }, 700);
       })
       .catch((e) => {
         const newUser = {
@@ -50,6 +53,10 @@ function App() {
           `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users`,
           newUser
         );
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       });
   };
   useEffect(() => {
@@ -65,6 +72,7 @@ function App() {
     <div className="App">
       <div style={{ color: "red" }}>My ID: {userID}</div>
       <div style={{ color: "red" }}>Username: {userName}</div>
+      <div style={{ color: "red" }}>RefID: {refID}</div>
       <Preloader isActive={isPreloaderActive} />
       {isAuth ? (
         <Routes>
