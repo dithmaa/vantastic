@@ -34,11 +34,11 @@ function App() {
         `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users?tg_id=${userID}`
       )
       .then(({ data }) => {
-        alert("Пользователь найден");
         setUser(data[0]);
         console.log(data[0]);
 
         setTimeout(() => {
+          setAuth(true);
           setPreloaderActive(false);
         }, 700);
       })
@@ -48,15 +48,16 @@ function App() {
           tg_username: userName,
           ref_id: refID,
         };
-        alert("Пользователь не найден");
-        axios.post(
-          `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users`,
-          newUser
-        );
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+        axios
+          .post(
+            `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users`,
+            newUser
+          )
+          .then((resp) => {
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          });
       });
   };
   useEffect(() => {
