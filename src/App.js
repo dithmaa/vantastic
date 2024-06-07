@@ -20,6 +20,7 @@ function App() {
   const [userName, setUserName] = useState(
     tg.initDataUnsafe?.user?.username || "none"
   );
+  const [refUsername, setRefUsername] = useState();
   useEffect(() => {
     tg.ready();
     tg.isClosingConfirmationEnabled = true;
@@ -38,6 +39,17 @@ function App() {
         console.log(data[0]);
 
         setTimeout(() => {
+          axios
+            .get(
+              `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users?tg_id=${refID}`
+            )
+            .then(({ data }) => {
+              console.log(data[0].tg_username);
+              setRefUsername(data[0].tg_username);
+            })
+            .catch((e) => {
+              alert("Не правильная реферальная ссылка");
+            });
           setAuth(true);
           setPreloaderActive(false);
         }, 700);
@@ -71,6 +83,7 @@ function App() {
   }
   return (
     <div className="App">
+      refUsername: {refUsername}
       <Preloader isActive={isPreloaderActive} />
       {isAuth ? (
         <Routes>
