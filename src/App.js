@@ -14,9 +14,7 @@ function App() {
   const [isAuth, setAuth] = useState(false);
   const [user, setUser] = useState();
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 2020);
-  const [refID, setRefID] = useState(
-    Number(tg.initDataUnsafe?.start_param?.slice(3)) || "none"
-  );
+  const [refID, setRefID] = useState();
   const [userName, setUserName] = useState(
     tg.initDataUnsafe?.user?.username || "none"
   );
@@ -38,6 +36,8 @@ function App() {
         setUser(data[0]);
         console.log(data[0]);
 
+        setRefID(data[0].ref_id);
+
         setTimeout(() => {
           axios
             .get(
@@ -55,10 +55,12 @@ function App() {
         }, 700);
       })
       .catch((e) => {
+        const refIdLink =
+          Number(tg.initDataUnsafe?.start_param?.slice(3)) || "none";
         const newUser = {
           tg_id: userID,
           tg_username: userName,
-          ref_id: refID,
+          ref_id: refIdLink,
         };
         axios
           .post(
