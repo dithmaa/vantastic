@@ -15,7 +15,7 @@ function App() {
   const [user, setUser] = useState();
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 2020);
   const [refID, setRefID] = useState(
-    Number(tg.initDataUnsafe?.user?.id.slice(3)) || 999
+    Number(tg.initDataUnsafe.start_param.slice(3)) || 999
   );
   const [userName, setUserName] = useState(
     tg.initDataUnsafe?.user?.username || "noname"
@@ -46,7 +46,7 @@ function App() {
         const newUser = {
           tg_id: userID,
           tg_username: userName,
-          ref_id: "none",
+          ref_id: refID,
         };
         alert("Пользователь не найден");
         axios.post(
