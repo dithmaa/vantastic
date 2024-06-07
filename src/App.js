@@ -29,7 +29,7 @@ function App() {
   }
   return (
     <div className="App">
-      <div style={{ color: "#fff" }}>
+      <div style={{ color: "red" }}>
         Ref ID: {tg.initDataUnsafe.start_param}
       </div>
       <Preloader isActive={isPreloaderActive} />
