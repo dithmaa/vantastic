@@ -14,6 +14,9 @@ function App() {
   const [isAuth, setAuth] = useState(false);
   const [user, setUser] = useState();
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 2020);
+  const [userName, setUserName] = useState(
+    tg.initDataUnsafe?.user?.username || "noname"
+  );
   useEffect(() => {
     tg.ready();
     tg.isClosingConfirmationEnabled = true;
@@ -39,7 +42,7 @@ function App() {
       .catch((e) => {
         const newUser = {
           tg_id: userID,
-          tg_username: "tg_username",
+          tg_username: userName,
           ref_id: "none",
         };
         alert("Пользователь не найден");
@@ -60,7 +63,8 @@ function App() {
   }
   return (
     <div className="App">
-      <div style={{ color: "red" }}>Ref ID: {userID}</div>
+      <div style={{ color: "red" }}>My ID: {userID}</div>
+      <div style={{ color: "red" }}>Username: {userName}</div>
       <Preloader isActive={isPreloaderActive} />
       {isAuth ? (
         <Routes>
