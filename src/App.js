@@ -15,10 +15,10 @@ function App() {
   const [user, setUser] = useState();
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 2020);
   const [refID, setRefID] = useState(
-    Number(tg.initDataUnsafe.start_param.slice(3)) || 999
+    Number(tg.initDataUnsafe?.start_param?.slice(3)) || "none"
   );
   const [userName, setUserName] = useState(
-    tg.initDataUnsafe?.user?.username || "noname"
+    tg.initDataUnsafe?.user?.username || "none"
   );
   useEffect(() => {
     tg.ready();
@@ -71,15 +71,20 @@ function App() {
   }
   return (
     <div className="App">
-      <div style={{ color: "red" }}>My ID: {userID}</div>
-      <div style={{ color: "red" }}>Username: {userName}</div>
-      <div style={{ color: "red" }}>RefID: {refID}</div>
       <Preloader isActive={isPreloaderActive} />
       {isAuth ? (
         <Routes>
           <Route
             path="/"
-            element={<Cards products={products} cardImages={cardImages} />}
+            element={
+              <Cards
+                userID={userID}
+                refID={refID}
+                userName={userName}
+                products={products}
+                cardImages={cardImages}
+              />
+            }
           />
           <Route
             path="/card/:id"
