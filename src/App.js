@@ -48,7 +48,7 @@ function App() {
               setRefUsername(data[0].tg_username);
             })
             .catch((e) => {
-              alert("Не правильная реферальная ссылка");
+              // alert("Не правильная реферальная ссылка");
             });
           setAuth(true);
           setPreloaderActive(false);
@@ -83,7 +83,6 @@ function App() {
   }
   return (
     <div className="App">
-      refUsername: {refUsername}
       <Preloader isActive={isPreloaderActive} />
       {isAuth ? (
         <Routes>
@@ -91,6 +90,7 @@ function App() {
             path="/"
             element={
               <Cards
+                refUsername={refUsername}
                 userID={userID}
                 refID={refID}
                 userName={userName}

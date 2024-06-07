@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card/Card";
 import headerBg from "../../assets/img/header.jpg";
 //homepage
-function Cards({ products, cardImages, userID, userName, refID }) {
+function Cards({ products, cardImages, userID, userName, refID, refUsername }) {
   return (
     <>
       <header
@@ -18,6 +18,9 @@ function Cards({ products, cardImages, userID, userName, refID }) {
         </div>
         <div style={{ color: "#9999d3" }}>
           <b>RefID: </b> {refID}
+        </div>
+        <div style={{ color: "#9999d3" }}>
+          <b>Ref Username: </b> {refUsername}
         </div>
       </div>
       <div className="container">
