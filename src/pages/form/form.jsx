@@ -5,11 +5,16 @@ import backArrow from "../../assets/img/back-arrow.png";
 import { NavLink } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 
-function Form() {
+function Form({ userID, userName, refID }) {
+  const [selectedDate, setSelectedDate] = useState("");
   const [phoneVal, setPhoneVal] = useState("");
-  // Обработчик события скролла страницы
+  const [adultVal, setAdultVal] = useState("");
+  const [childVal, setChildVal] = useState("");
+
+  // Поля ввода
 
   const handlePhoneVal = (e) => {
+    // номер
     const inputValue = e.target.value;
     // Проверяем ввод на соответствие регулярному выражению
     const regex = /^[+\d]*$/;
@@ -17,10 +22,50 @@ function Form() {
       setPhoneVal(inputValue);
     }
   };
-  const [selectedDate, setSelectedDate] = useState("");
-
+  const handleAdultVal = (event) => {
+    setAdultVal(event.target.value);
+  };
+  const handleChildVal = (event) => {
+    setChildVal(event.target.value);
+  };
   const handleDateChange = (event) => {
+    // дата
     setSelectedDate(event.target.value);
+  };
+
+  // Обработка формы
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Отправлено");
+
+    const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
+    const chatId = "403521818";
+    const text = `Номер телефона: ${phoneVal}\nВзрослые: ${adultVal}\nДети: ${childVal}\nЖелаемая дата: ${selectedDate}\nАйди покупателя: ${userID}\nUsername покупателя: ${userName}\nКто его пригласил: ${refID}.`;
+
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Message sent successfully!");
+      } else {
+        console.log("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message.");
+    }
   };
 
   useEffect(() => {
@@ -57,7 +102,7 @@ function Form() {
       </div>
       <div className="container">
         <h3 className="form-title">Имя.</h3>
-        <form className="form" action="#">
+        <form className="form" action="#" onSubmit={handleSubmit}>
           <div className="form__item">
             <label className="form__title">Номер телефона:</label>
             <input
@@ -71,8 +116,20 @@ function Form() {
           <div className="form__item">
             <label className="form__title">Колличество человек:</label>
             <div className="form__item-line flex">
-              <input type="tel" maxLength={2} placeholder="Взрослые" />
-              <input type="tel" maxLength={2} placeholder="Дети" />
+              <input
+                type="tel"
+                onChange={handleAdultVal}
+                maxLength={2}
+                placeholder="Взрослые"
+                value={adultVal}
+              />
+              <input
+                type="tel"
+                maxLength={2}
+                placeholder="Дети"
+                value={childVal}
+                onChange={handleChildVal}
+              />
             </div>
           </div>
 
@@ -94,7 +151,9 @@ function Form() {
             />
           </div>
 
-          <button className="form__btn">Свяжитесь со мной</button>
+          <button className="form__btn" type={"submit"}>
+            Свяжитесь со мной
+          </button>
         </form>
       </div>
     </section>

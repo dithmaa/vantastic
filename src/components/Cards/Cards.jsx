@@ -2,27 +2,14 @@ import React from "react";
 import Card from "./Card/Card";
 import headerBg from "../../assets/img/header.jpg";
 //homepage
-function Cards({ products, cardImages, userID, userName, refID, refUsername }) {
+function Cards({ products, cardImages }) {
   return (
     <>
       <header
         className="header"
         style={{ backgroundImage: `url(${headerBg}` }}
       ></header>
-      <div style={{ padding: "20px" }}>
-        <div style={{ color: "#9999d3" }}>
-          <b>My ID:</b> {userID}
-        </div>
-        <div style={{ color: "#9999d3" }}>
-          <b>Username: </b> {userName}
-        </div>
-        <div style={{ color: "#9999d3" }}>
-          <b>RefID: </b> {refID}
-        </div>
-        <div style={{ color: "#9999d3" }}>
-          <b>Ref Username: </b> {refUsername}
-        </div>
-      </div>
+
       <div className="container">
         <section className="cards">
           {products.map((product, key) => {
