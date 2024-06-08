@@ -6,6 +6,7 @@ import Form from "./pages/form/form";
 import { useEffect, useState } from "react";
 import { products } from "./products";
 import Preloader from "./components/Preloader/Preloader";
+import Sucess from "./pages/success/sucess";
 
 const tg = window.Telegram.WebApp;
 function App() {
@@ -50,9 +51,10 @@ function App() {
           element={<CardPage products={products} cardImages={cardImages} />}
         />
         <Route
-          path="/form/"
+          path="/form/:id"
           element={<Form userID={userID} refID={refID} userName={userName} />}
         />
+        <Route path="/success/" element={<Sucess />} />
       </Routes>
     </div>
   );

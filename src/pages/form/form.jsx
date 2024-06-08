@@ -5,7 +5,12 @@ import backArrow from "../../assets/img/back-arrow.png";
 import { NavLink } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 
+import { useParams } from "react-router-dom";
+import Sucess from "../success/sucess";
+
 function Form({ userID, userName, refID }) {
+  const { id } = useParams();
+  console.log(id);
   const [selectedDate, setSelectedDate] = useState("");
   const [phoneVal, setPhoneVal] = useState("");
   const [adultVal, setAdultVal] = useState("");
@@ -41,7 +46,7 @@ function Form({ userID, userName, refID }) {
 
     const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
     const chatId = "403521818";
-    const text = `Номер телефона: ${phoneVal}\nВзрослые: ${adultVal}\nДети: ${childVal}\nЖелаемая дата: ${selectedDate}\nАйди покупателя: ${userID}\nUsername покупателя: ${userName}\nКто его пригласил: ${refID}.`;
+    const text = `Номер телефона: ${phoneVal}\nВзрослые: ${adultVal}\nДети: ${childVal}\nЖелаемая дата: ${selectedDate}\nАйди покупателя: ${userID}\nUsername покупателя: ${userName}\nКто его пригласил: ${refID}.\nАйди товара: ${id}`;
 
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
@@ -59,6 +64,7 @@ function Form({ userID, userName, refID }) {
 
       if (response.ok) {
         console.log("Message sent successfully!");
+        window.location.href = "/success";
       } else {
         console.log("Failed to send message.");
       }

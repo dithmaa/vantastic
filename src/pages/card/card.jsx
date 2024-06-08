@@ -66,7 +66,7 @@ function Card({ cardImages, products }) {
         Взрослый: {products[id - 1].price} ₽ / Детский: ###
       </button>
       <button className="btn info-plaque">Отправление: ###</button>
-      <NavLink to="/form/">
+      <NavLink to={"/form/" + id}>
         <button onClick={vibrate} className="btn btn-main">
           Забронировать
         </button>
