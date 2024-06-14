@@ -31,7 +31,7 @@ function Card({ cardImages, products, info }) {
   };
 
   const InfoComponent = ({ text }) => {
-    return <div dangerouslySetInnerHTML={{ __html: text }} />;
+    return <p dangerouslySetInnerHTML={{ __html: text }} />;
   };
 
   return (
@@ -50,12 +50,8 @@ function Card({ cardImages, products, info }) {
 
       <div className="card-page__content">
         <h2 className="h2">{products[id - 1].name}</h2>
-        <p>{products[id - 1].description}</p>
-
-        <p>
-          {" "}
-          <InfoComponent text={currentInfo ? currentInfo.text : ""} />
-        </p>
+        <p>{products[id - 1].description}</p>{" "}
+        <InfoComponent text={currentInfo ? currentInfo.text : ""} />
       </div>
       <button className="btn" disabled>
         Взрослый: {products[id - 1].price} ₽ / Детский: ###
