@@ -171,3 +171,8 @@ header {
 .options-val:last-child {
     border-color: transparent;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

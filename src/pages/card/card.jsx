@@ -10,10 +10,12 @@ import { useParams } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 const tg = window.Telegram.WebApp;
 
-function Card({ cardImages, products }) {
+function Card({ cardImages, products, info }) {
   const { id } = useParams();
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   const [currentProductImg, setCurrentProductImg] = useState([]);
+
+  const currentInfo = info[id - 1];
   useEffect(() => {
     setCurrentProductImg(cardImages[id - 1]);
   }, []);
@@ -27,7 +29,11 @@ function Card({ cardImages, products }) {
   const vibrate = () => {
     tg.HapticFeedback.impactOccurred("rigid");
   };
-  console.log(isPreloaderActive);
+
+  const InfoComponent = ({ text }) => {
+    return <div dangerouslySetInnerHTML={{ __html: text }} />;
+  };
+
   return (
     <section className="card-page page-gap">
       <Preloader isActive={isPreloaderActive} />
@@ -45,21 +51,10 @@ function Card({ cardImages, products }) {
       <div className="card-page__content">
         <h2 className="h2">{products[id - 1].name}</h2>
         <p>{products[id - 1].description}</p>
-        <hr />
-        <p style={{ color: "red" }}>
-          ВСЕ ЧТО НИЖЕ НУЖНО БУДЕТ ПОМЕНЯТЬ ДУМАЮ )))
-        </p>
-        <hr />
+
         <p>
-          <b>Прибрежный кластер:</b> Олимпийский парк, Шоу «Поющие фонтаны»,
-          обзорная экскурсия по Олимпийскому парку.
-        </p>
-        <p>
-          <b>По желанию: минеральный</b> источник Чвижепсе, обед.
-        </p>
-        <p>
-          <b>Канатная дорога:</b>Роза Хутор 2320 м, Роза Хутор 1200 м, Красная
-          Поляна 2200 м, Красная Поляна 960 м
+          {" "}
+          <InfoComponent text={currentInfo ? currentInfo.text : ""} />
         </p>
       </div>
       <button className="btn" disabled>

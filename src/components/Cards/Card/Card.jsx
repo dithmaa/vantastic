@@ -10,7 +10,7 @@ function Card({ image, name, description, price, picture, id }) {
     tg.HapticFeedback.impactOccurred("rigid");
   };
   return (
-    <div className="card">
+    <NavLink to={"/card/" + id} className="card">
       <div className="card__img">
         <img src={picture} alt={name} />
       </div>
@@ -21,14 +21,12 @@ function Card({ image, name, description, price, picture, id }) {
           <div className="card__price">
             <span>{price}</span>₽<p>За взрослого</p>
           </div>
-          <NavLink to={"/card/" + id}>
-            <span onClick={vibrate} className="card__next-btn">
-              <img src={nextBtn} alt="next btn" />
-            </span>
-          </NavLink>
+          <span onClick={vibrate} className="card__next-btn">
+            <img src={nextBtn} alt="next btn" />
+          </span>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 

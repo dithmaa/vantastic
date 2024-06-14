@@ -5,6 +5,7 @@ import CardPage from "./pages/card/card";
 import Form from "./pages/form/form";
 import { useEffect, useState } from "react";
 import { products } from "./products";
+import { info } from "./describtion";
 import Preloader from "./components/Preloader/Preloader";
 import Sucess from "./pages/success/sucess";
 
@@ -33,7 +34,7 @@ function App() {
   // получаем картинки
   const cardImages = [];
 
-  for (let i = 1; i <= 16; i++) {
+  for (let i = 1; i <= 14; i++) {
     cardImages.push(require(`./assets/img/card${i}.jpg`));
   }
   // приложение
@@ -48,7 +49,9 @@ function App() {
         />
         <Route
           path="/card/:id"
-          element={<CardPage products={products} cardImages={cardImages} />}
+          element={
+            <CardPage info={info} products={products} cardImages={cardImages} />
+          }
         />
         <Route
           path="/form/:id"
