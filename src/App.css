@@ -157,10 +157,14 @@ body {
 
 header {
   background: no-repeat center / cover;
-  height: 104px;
-  max-width: 500px;
+  height: 30vw;
+  max-width: 590px;
   margin: 0 auto;
 
+}
+
+.card-page__image img {
+  object-fit: cover;
 }
 
 section {
