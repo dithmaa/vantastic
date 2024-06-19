@@ -70,7 +70,6 @@ function App() {
   // приложение
   return (
     <div className="App">
-      sssssssssssssssss
       <Preloader isActive={isPreloaderActive} />
       <Routes>
         <Route
