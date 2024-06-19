@@ -53,11 +53,8 @@ function Card({ cardImages, products, info, userName, userID }) {
       )
       .then(({ data }) => {
         alert(data[0].ref_id);
-        setRef_id(data[0].ref_id);
-      })
-      .finally(() => {
         setTimeout(() => {
-          sendData(ref_id);
+          sendData(data[0].ref_id);
         }, 500);
       });
   }, []);
