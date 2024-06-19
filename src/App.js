@@ -46,7 +46,6 @@ function App() {
             tg_username: userName,
             ref_id: refID,
           };
-          alert("Пользователь не найден");
           axios
             .post(
               `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users`,
