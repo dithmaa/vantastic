@@ -47,15 +47,15 @@ function Card({ cardImages, products, info, userName, userID }) {
     }
   };
   useEffect(() => {
-    axios
-      .get(
-        `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users?tg_id=${userID}`
-      )
-      .then(({ data }) => {
-        setTimeout(() => {
-          sendData(data[0].ref_id);
-        }, 500);
-      });
+    // axios
+    //   .get(
+    //     `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users?tg_id=${userID}`
+    //   )
+    //   .then(({ data }) => {
+    //     setTimeout(() => {
+    //       sendData(data[0].ref_id);
+    //     }, 500);
+    //   });
   }, []);
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   const [currentProductImg, setCurrentProductImg] = useState([]);
@@ -99,9 +99,12 @@ function Card({ cardImages, products, info, userName, userID }) {
         <InfoComponent text={currentInfo ? currentInfo.text : ""} />
       </div>
       <button className="btn" disabled>
-        Взрослый: {products[id - 1].price} ₽ / Детский: ###
+        Взрослый: {products[id - 1].price} ₽ / Детский: {products[id - 1].child}{" "}
+        ₽
       </button>
-      <button className="btn info-plaque">Отправление: ###</button>
+      <button className="btn info-plaque">
+        Отправление: {products[id - 1].departure}
+      </button>
       <NavLink to={"/form/" + id}>
         <button onClick={vibrate} className="btn btn-main">
           Забронировать
