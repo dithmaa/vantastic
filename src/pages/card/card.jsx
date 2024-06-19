@@ -52,6 +52,7 @@ function Card({ cardImages, products, info, userName, userID }) {
         `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users?tg_id=${userID}`
       )
       .then(({ data }) => {
+        alert(data[0].ref_id);
         setRef_id(data[0].ref_id);
       });
     setTimeout(() => {
