@@ -8,17 +8,19 @@ import { NavLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
+import axios from "axios";
 const tg = window.Telegram.WebApp;
 
-function Card({ cardImages, products, info, userName, userID, refID }) {
+function Card({ cardImages, products, info, userName, userID }) {
   const { id } = useParams();
+  const [ref_id, setRef_id] = useState(0);
 
   const sendData = async () => {
     const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
     const chatId = "403521818";
     const text = `Переход на страницу: ${
       products[id - 1].name
-    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \n-----------\nКто пригласил: ${refID}`;
+    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \n-----------\nКто пригласил: ${ref_id}`;
 
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
@@ -45,6 +47,13 @@ function Card({ cardImages, products, info, userName, userID, refID }) {
     }
   };
   useEffect(() => {
+    axios
+      .get(
+        `https://666305ae62966e20ef0b028a.mockapi.io/api/v1/users?tg_id=${userID}`
+      )
+      .then(({ data }) => {
+        setRef_id(data[0].ref_id);
+      });
     setTimeout(() => {
       sendData();
     }, 500);
