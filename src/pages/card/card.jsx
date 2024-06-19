@@ -18,7 +18,7 @@ function Card({ cardImages, products, info, userName, userID, refID }) {
     const chatId = "403521818";
     const text = `Переход на страницу: ${
       products[id - 1].name
-    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \nКто пригласил: ${refID}`;
+    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \n-----------\nКто пригласил: ${refID}`;
 
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
