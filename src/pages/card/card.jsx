@@ -10,8 +10,45 @@ import { useParams } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 const tg = window.Telegram.WebApp;
 
-function Card({ cardImages, products, info }) {
+function Card({ cardImages, products, info, userName, userID, refID }) {
   const { id } = useParams();
+
+  const sendData = async () => {
+    const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
+    const chatId = "403521818";
+    const text = `Переход на страницу: ${
+      products[id - 1].name
+    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \nКто пригласил: ${refID}`;
+
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Message sent successfully!");
+      } else {
+        console.log("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message.");
+    }
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      sendData();
+    }, 3000);
+  }, []);
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   const [currentProductImg, setCurrentProductImg] = useState([]);
 
