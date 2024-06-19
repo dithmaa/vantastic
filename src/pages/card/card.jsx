@@ -15,12 +15,12 @@ function Card({ cardImages, products, info, userName, userID }) {
   const { id } = useParams();
   const [ref_id, setRef_id] = useState(0);
 
-  const sendData = async () => {
+  const sendData = async (id) => {
     const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
     const chatId = "403521818";
     const text = `Переход на страницу: ${
       products[id - 1].name
-    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \n-----------\nКто пригласил: ${ref_id}`;
+    }, \nID пользователя: ${userID}, \nUsername: ${userName}, \n-----------\nКто пригласил: ${id}`;
 
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
@@ -57,7 +57,7 @@ function Card({ cardImages, products, info, userName, userID }) {
       })
       .finally(() => {
         setTimeout(() => {
-          sendData();
+          sendData(ref_id);
         }, 500);
       });
   }, []);
