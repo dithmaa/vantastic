@@ -54,10 +54,12 @@ function Card({ cardImages, products, info, userName, userID }) {
       .then(({ data }) => {
         alert(data[0].ref_id);
         setRef_id(data[0].ref_id);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          sendData();
+        }, 500);
       });
-    setTimeout(() => {
-      sendData();
-    }, 500);
   }, []);
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   const [currentProductImg, setCurrentProductImg] = useState([]);
