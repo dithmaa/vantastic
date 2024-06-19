@@ -47,7 +47,7 @@ function Card({ cardImages, products, info, userName, userID, refID }) {
   useEffect(() => {
     setTimeout(() => {
       sendData();
-    }, 3000);
+    }, 500);
   }, []);
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   const [currentProductImg, setCurrentProductImg] = useState([]);
