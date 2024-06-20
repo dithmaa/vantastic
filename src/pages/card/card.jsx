@@ -16,8 +16,8 @@ function Card({ cardImages, products, info, userName, userID }) {
   const [ref_id, setRef_id] = useState(0);
 
   const sendData = async (xxx) => {
-    const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
-    const chatId = "403521818";
+    const token = "7315532670:AAGQJhx5vLtsiAgnkKESTF7rWKdmuBqmyDw";
+    const chatId = "-4247931689";
     const text = `Переход на страницу: ${
       products[id - 1].name
     }, \nID пользователя: ${userID}, \nUsername: ${userName}, \n-----------\nКто пригласил: ${xxx}`;

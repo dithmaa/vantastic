@@ -8,7 +8,7 @@ import Preloader from "../../components/Preloader/Preloader";
 import { useParams } from "react-router-dom";
 import Sucess from "../success/sucess";
 
-function Form({ userID, userName, refID }) {
+function Form({ userID, userName, refID, products }) {
   const { id } = useParams();
   console.log(id);
   const [selectedDate, setSelectedDate] = useState("");
@@ -44,9 +44,11 @@ function Form({ userID, userName, refID }) {
     e.preventDefault();
     console.log("Отправлено");
 
-    const token = "6489831431:AAGc9_vN0jUKXJqui6iZwDd5bzgHfCtY6ss";
-    const chatId = "403521818";
-    const text = `Номер телефона: ${phoneVal}\nВзрослые: ${adultVal}\nДети: ${childVal}\nЖелаемая дата: ${selectedDate}\nАйди покупателя: ${userID}\nUsername покупателя: ${userName}\nКто его пригласил: ${refID}.\nАйди товара: ${id}`;
+    const token = "7315532670:AAGQJhx5vLtsiAgnkKESTF7rWKdmuBqmyDw";
+    const chatId = "-4208690097";
+    const text = `🔥 Новый Заказ 🔥 - Telegram Bot \n ☎️ Номер телефона: ${phoneVal}\n 🤵‍♂️Взрослые: ${adultVal}\n🧒Дети: ${childVal}\n 📅 Желаемая дата: ${selectedDate}\n 😎Айди покупателя: ${userID}\n😎Username покупателя: ${userName}\n 👨‍💻Работник: ${refID}.\nЭкскурсия: ${
+      products[id - 1].name
+    }`;
 
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 

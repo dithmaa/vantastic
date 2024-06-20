@@ -90,7 +90,14 @@ function App() {
         />
         <Route
           path="/form/:id"
-          element={<Form userID={userID} refID={refID} userName={userName} />}
+          element={
+            <Form
+              userID={userID}
+              refID={refID}
+              userName={userName}
+              products={products}
+            />
+          }
         />
         <Route path="/success/" element={<Sucess />} />
       </Routes>
