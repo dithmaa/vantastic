@@ -15,9 +15,13 @@ function App() {
   const [isPreloaderActive, setPreloaderActive] = useState(true);
   // TG API Data
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 759439);
+
   const [refID, setRefID] = useState(
-    Number(tg.initDataUnsafe?.start_param?.slice(3)) || "none"
+    Number(tg.initDataUnsafe?.start_param?.slice(3)) ||
+      new URLSearchParams(window.location.search).get("baby") ||
+      "none"
   );
+
   const [userName, setUserName] = useState(
     tg.initDataUnsafe?.user?.username || "none"
   );
