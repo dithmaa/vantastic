@@ -18,7 +18,9 @@ function App() {
 
   const [refID, setRefID] = useState(
     Number(tg.initDataUnsafe?.start_param?.slice(3)) ||
-      new URLSearchParams(window.location.search).get("baby") ||
+      Number(
+        new URLSearchParams(window.location.search).get("baby").slice(3)
+      ) ||
       "none"
   );
 
