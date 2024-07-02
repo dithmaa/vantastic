@@ -16,13 +16,18 @@ function App() {
   // TG API Data
   const [userID, setUserID] = useState(tg.initDataUnsafe?.user?.id || 759439);
 
-  const [refID, setRefID] = useState(
-    Number(tg.initDataUnsafe?.start_param?.slice(3)) ||
-      Number(
-        new URLSearchParams(window.location.search).get("baby").slice(3)
-      ) ||
-      "none"
-  );
+  const [refID, setRefID] = useState(() => {
+    const startParam = tg.initDataUnsafe?.start_param;
+    const babyParam = new URLSearchParams(window.location.search).get("baby");
+
+    if (startParam && typeof startParam === "string") {
+      return Number(startParam.slice(3));
+    } else if (babyParam && typeof babyParam === "string") {
+      return Number(babyParam.slice(3));
+    } else {
+      return "none";
+    }
+  });
 
   const [userName, setUserName] = useState(
     tg.initDataUnsafe?.user?.username || "none"
